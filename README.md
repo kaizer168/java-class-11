@@ -82,4 +82,44 @@ logpath=/data/mongo/logs/server3.log
 replSet=heroMongoCluster  
 [root@mongodb-0 ~]#  
 
+## 启动集群脚本  
+[root@mongodb-0 ~]# tee /root/mongocluster/start-mongo-cluster.sh <<-'EOF'  
+> #! /bin/bash  
+> clear  
+> /usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod -f /root/mongocluster/mongo_37017.conf  
+> /usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod -f /root/mongocluster/mongo_37018.conf  
+> /usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod -f /root/mongocluster/mongo_37019.conf  
+> echo "start mongo cluster..."  
+> ps -ef | grep mongodb  
+> EOF  
+#! /bin/bash  
+clear  
+/usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod -f /root/mongocluster/mongo_37017.conf  
+/usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod -f /root/mongocluster/mongo_37018.conf  
+/usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod -f /root/mongocluster/mongo_37019.conf  
+echo "start mongo cluster..."  
+ps -ef | grep mongodb  
+[root@mongodb-0 ~]#  
+[root@mongodb-0 ~]# chmod 755 /root/mongocluster/start-mongo-cluster.sh  
+[root@mongodb-0 ~]#   
 
+## 关闭集群脚本  
+[root@mongodb-0 ~]# tee /root/mongocluster/stop-mongo-cluster.sh <<-'EOF'  
+> #! /bin/bash  
+> clear  
+> /usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod --shutdown -f /root/mongocluster/mongo_37017.conf  
+> /usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod --shutdown -f /root/mongocluster/mongo_37018.conf  
+> /usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod --shutdown -f /root/mongocluster/mongo_37019.conf  
+> echo "stop mongo cluster..."  
+> ps -ef | grep mongodb  
+> EOF  
+#! /bin/bash  
+clear  
+/usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod --shutdown -f /root/mongocluster/mongo_37017.conf  
+/usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod --shutdown -f /root/mongocluster/mongo_37018.conf  
+/usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod --shutdown -f /root/mongocluster/mongo_37019.conf  
+echo "stop mongo cluster..."  
+ps -ef | grep mongodb  
+[root@mongodb-0 ~]#  
+[root@mongodb-0 ~]# chmod 755 /root/mongocluster/stop-mongo-cluster.sh  
+[root@mongodb-0 ~]#  
