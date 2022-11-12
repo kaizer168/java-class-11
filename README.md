@@ -516,4 +516,75 @@ heroMongoCluster:PRIMARY> rs.status()
 }  
 heroMongoCluster:PRIMARY>  
 
+[root@mongodb-0 ~]# mongo --host=192.168.1.130 --port=37018  
+MongoDB shell version v4.1.3  
+connecting to: mongodb://192.168.1.130:37018/  
+Implicit session: session { "id" : UUID("15dd1c07-4927-4da2-bd97-6fd35169383f") }  
+MongoDB server version: 4.1.3  
+Server has startup warnings:  
+2022-11-12T18:12:42.317+0800 I CONTROL  [initandlisten]   
+2022-11-12T18:12:42.317+0800 I CONTROL  [initandlisten] ** NOTE: This is a development version (4.1.3) of MongoDB.  
+2022-11-12T18:12:42.318+0800 I CONTROL  [initandlisten] **       Not recommended for production.  
+2022-11-12T18:12:42.318+0800 I CONTROL  [initandlisten]  
+2022-11-12T18:12:42.318+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.  
+2022-11-12T18:12:42.319+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.  
+2022-11-12T18:12:42.319+0800 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.  
+2022-11-12T18:12:42.319+0800 I CONTROL  [initandlisten]  
+2022-11-12T18:12:42.319+0800 I CONTROL  [initandlisten]  
+2022-11-12T18:12:42.319+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.  
+2022-11-12T18:12:42.319+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'  
+2022-11-12T18:12:42.319+0800 I CONTROL  [initandlisten]  
+2022-11-12T18:12:42.319+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.  
+2022-11-12T18:12:42.320+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'  
+2022-11-12T18:12:42.320+0800 I CONTROL  [initandlisten]  
+\---  
+Enable MongoDB's free cloud-based monitoring service, which will then receive and display  
+metrics about your deployment (disk utilization, CPU, operation statistics, etc).  
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you  
+and anyone you share the URL with. MongoDB may use this information to make product  
+improvements and to suggest MongoDB products and deployment options to you.  
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()  
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()  
+\---
+
+heroMongoCluster:SECONDARY> rs.slaveOk()  
+heroMongoCluster:SECONDARY> exit  
+
+[root@mongodb-0 ~]# mongo --host=192.168.1.130 --port=37019  
+MongoDB shell version v4.1.3  
+connecting to: mongodb://192.168.1.130:37019/  
+Implicit session: session { "id" : UUID("04cc87f8-9b5a-4134-97af-c9a12731d6dc") }  
+MongoDB server version: 4.1.3  
+Server has startup warnings:  
+2022-11-12T18:12:45.548+0800 I CONTROL  [initandlisten]  
+2022-11-12T18:12:45.549+0800 I CONTROL  [initandlisten] ** NOTE: This is a development version (4.1.3) of MongoDB.  
+2022-11-12T18:12:45.549+0800 I CONTROL  [initandlisten] **       Not recommended for production.  
+2022-11-12T18:12:45.549+0800 I CONTROL  [initandlisten]  
+2022-11-12T18:12:45.549+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.  
+2022-11-12T18:12:45.549+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.  
+2022-11-12T18:12:45.549+0800 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.  
+2022-11-12T18:12:45.549+0800 I CONTROL  [initandlisten]  
+2022-11-12T18:12:45.549+0800 I CONTROL  [initandlisten]  
+2022-11-12T18:12:45.549+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.  
+2022-11-12T18:12:45.549+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'  
+2022-11-12T18:12:45.549+0800 I CONTROL  [initandlisten]  
+2022-11-12T18:12:45.550+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.  
+2022-11-12T18:12:45.550+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'  
+2022-11-12T18:12:45.550+0800 I CONTROL  [initandlisten]  
+\---
+Enable MongoDB's free cloud-based monitoring service, which will then receive and display  
+metrics about your deployment (disk utilization, CPU, operation statistics, etc).  
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you  
+and anyone you share the URL with. MongoDB may use this information to make product  
+improvements and to suggest MongoDB products and deployment options to you.  
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()  
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()  
+\---
+
+heroMongoCluster:SECONDARY> rs.slaveOk()  
+heroMongoCluster:SECONDARY>  
 
