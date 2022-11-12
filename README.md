@@ -167,7 +167,7 @@ Server has startup warnings:
 2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.  
 2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'  
 2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten]  
----
+\---
 Enable MongoDB's free cloud-based monitoring service, which will then receive and display  
 metrics about your deployment (disk utilization, CPU, operation statistics, etc).  
 
@@ -177,7 +177,7 @@ improvements and to suggest MongoDB products and deployment options to you.
 
 To enable free monitoring, run the following command: db.enableFreeMonitoring()  
 To permanently disable this reminder, run the following command: db.disableFreeMonitoring()  
----  
+\---  
 
 >  
 > var cfg ={"_id":"heroMongoCluster",  
