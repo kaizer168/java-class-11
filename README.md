@@ -145,7 +145,7 @@ root      51470      1 97 18:12 ?        00:00:02 /usr/local/hero/mongodb-linux-
 root      51537  51337  0 18:12 pts/0    00:00:00 grep mongodb  
 [root@mongodb-0 mongocluster]#  
 
-## 初始化集群  
+## 初始化集群    
 [root@mongodb-0 mongocluster]# mongo --host=192.168.1.130 --port=37017  
 MongoDB shell version v4.1.3  
 connecting to: mongodb://192.168.1.130:37017/  
