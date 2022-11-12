@@ -29,13 +29,13 @@ server1.log  server2.log  server3.log
 
 ## 主节点配置 mongo_37017.conf  
 [root@mongodb-0 ~]# tee /root/mongocluster/mongo_37017.conf <<-'EOF'  
-> # 主节点配置  
+> \# 主节点配置  
 > dbpath=/data/mongo/data/server1  
 > bind_ip=0.0.0.0  
 > port=37017  
 > fork=true  
 > logpath=/data/mongo/logs/server1.log  
-> # 集群名称  
+> \# 集群名称  
 > replSet=heroMongoCluster  
 > EOF  
 \# 主节点配置  
