@@ -396,5 +396,124 @@ heroMongoCluster:PRIMARY> rs.add("192.168.1.130:37019")
         "operationTime" : Timestamp(1668249711, 2)  
 }  
 heroMongoCluster:PRIMARY>  
+heroMongoCluster:PRIMARY> rs.status()  
+{  
+        "set" : "heroMongoCluster",  
+        "date" : ISODate("2022-11-12T10:43:40.182Z"),  
+        "myState" : 1,  
+        "term" : NumberLong(1),  
+        "syncingTo" : "",  
+        "syncSourceHost" : "",  
+        "syncSourceId" : -1,  
+        "heartbeatIntervalMillis" : NumberLong(2000),  
+        "optimes" : {  
+                "lastCommittedOpTime" : {  
+                        "ts" : Timestamp(1668249811, 1),  
+                        "t" : NumberLong(1)  
+                },  
+                "readConcernMajorityOpTime" : {  
+                        "ts" : Timestamp(1668249811, 1),  
+                        "t" : NumberLong(1)  
+                },  
+                "appliedOpTime" : {  
+                        "ts" : Timestamp(1668249811, 1),  
+                        "t" : NumberLong(1)  
+                },  
+                "durableOpTime" : {  
+                        "ts" : Timestamp(1668249811, 1),  
+                        "t" : NumberLong(1)  
+                }  
+        },  
+        "lastStableRecoveryTimestamp" : Timestamp(1668249791, 1),  
+        "lastStableCheckpointTimestamp" : Timestamp(1668249791, 1),  
+        "members" : [  
+                {  
+                        "_id" : 1,  
+                        "name" : "192.168.1.130:37017",  
+                        "health" : 1,  
+                        "state" : 1,  
+                        "stateStr" : "PRIMARY",  
+                        "uptime" : 1862,  
+                        "optime" : {  
+                                "ts" : Timestamp(1668249811, 1),  
+                                "t" : NumberLong(1)  
+                        },  
+                        "optimeDate" : ISODate("2022-11-12T10:43:31Z"),  
+                        "syncingTo" : "",  
+                        "syncSourceHost" : "",  
+                        "syncSourceId" : -1,  
+                        "infoMessage" : "",  
+                        "electionTime" : Timestamp(1668248709, 1),  
+                        "electionDate" : ISODate("2022-11-12T10:25:09Z"),  
+                        "configVersion" : 2,   
+                        "self" : true,  
+                        "lastHeartbeatMessage" : ""  
+                },  
+                {  
+                        "_id" : 2,  
+                        "name" : "192.168.1.130:37018",  
+                        "health" : 1,  
+                        "state" : 2,  
+                        "stateStr" : "SECONDARY",  
+                        "uptime" : 1121,  
+                        "optime" : {  
+                                "ts" : Timestamp(1668249811, 1),  
+                                "t" : NumberLong(1)  
+                        },  
+                        "optimeDurable" : {  
+                                "ts" : Timestamp(1668249811, 1),  
+                                "t" : NumberLong(1)  
+                        },  
+                        "optimeDate" : ISODate("2022-11-12T10:43:31Z"),  
+                        "optimeDurableDate" : ISODate("2022-11-12T10:43:31Z"),  
+                        "lastHeartbeat" : ISODate("2022-11-12T10:43:39.869Z"),  
+                        "lastHeartbeatRecv" : ISODate("2022-11-12T10:43:38.871Z"),  
+                        "pingMs" : NumberLong(0),  
+                        "lastHeartbeatMessage" : "",  
+                        "syncingTo" : "192.168.1.130:37017",  
+                        "syncSourceHost" : "192.168.1.130:37017",  
+                        "syncSourceId" : 1,  
+                        "infoMessage" : "",  
+                        "configVersion" : 2  
+                },  
+                {  
+                        "_id" : 3,  
+                        "name" : "192.168.1.130:37019",  
+                        "health" : 1,  
+                        "state" : 2,  
+                        "stateStr" : "SECONDARY",  
+                        "uptime" : 108,  
+                        "optime" : {  
+                                "ts" : Timestamp(1668249811, 1),  
+                                "t" : NumberLong(1)  
+                        },  
+                        "optimeDurable" : {  
+                                "ts" : Timestamp(1668249811, 1),  
+                                "t" : NumberLong(1)  
+                        },  
+                        "optimeDate" : ISODate("2022-11-12T10:43:31Z"),  
+                        "optimeDurableDate" : ISODate("2022-11-12T10:43:31Z"),  
+                        "lastHeartbeat" : ISODate("2022-11-12T10:43:39.868Z"),  
+                        "lastHeartbeatRecv" : ISODate("2022-11-12T10:43:38.651Z"),  
+                        "pingMs" : NumberLong(0),  
+                        "lastHeartbeatMessage" : "",  
+                        "syncingTo" : "192.168.1.130:37017",  
+                        "syncSourceHost" : "192.168.1.130:37017",  
+                        "syncSourceId" : 1,  
+                        "infoMessage" : "",  
+                        "configVersion" : 2  
+                }  
+        ],  
+        "ok" : 1,  
+        "$clusterTime" : {  
+                "clusterTime" : Timestamp(1668249811, 1),  
+                "signature" : {  
+                        "hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),  
+                        "keyId" : NumberLong(0)  
+                }  
+        },  
+        "operationTime" : Timestamp(1668249811, 1)  
+}  
+heroMongoCluster:PRIMARY>  
 
 
