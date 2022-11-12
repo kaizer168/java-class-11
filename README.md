@@ -179,15 +179,15 @@ To enable free monitoring, run the following command: db.enableFreeMonitoring()
 To permanently disable this reminder, run the following command: db.disableFreeMonitoring()  
 \---  
 
->  
-> var cfg ={"_id":"heroMongoCluster",  
+\>  
+\> var cfg ={"_id":"heroMongoCluster",  
 ... "protocolVersion" : 1,  
 ... "members":[  
 ... {"_id":1,"host":"192.168.1.130:37017","priority":10},  
 ... {"_id":2,"host":"192.168.1.130:37018"}  
 ... ]  
 ... }  
-> rs.initiate(cfg)  
+\> rs.initiate(cfg)  
 {  
         "ok" : 1,  
         "$clusterTime" : {  
