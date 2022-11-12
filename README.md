@@ -122,4 +122,25 @@ echo "stop mongo cluster..."
 ps -ef | grep mongodb  
 [root@mongodb-0 ~]#  
 [root@mongodb-0 ~]# chmod 755 /root/mongocluster/stop-mongo-cluster.sh  
-[root@mongodb-0 ~]#  
+[root@mongodb-0 ~]# cd mongocluster 
+
+## 启动集群  
+[root@mongodb-0 mongocluster]# ./start-mongo-cluster.sh  
+2022-11-12T18:12:38.131+0800 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'  
+about to fork child process, waiting until server is ready for connections.  
+forked process: 51345  
+child process started successfully, parent exiting  
+2022-11-12T18:12:39.895+0800 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'  
+about to fork child process, waiting until server is ready for connections.  
+forked process: 51390  
+child process started successfully, parent exiting  
+2022-11-12T18:12:42.786+0800 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'  
+about to fork child process, waiting until server is ready for connections.  
+forked process: 51470  
+child process started successfully, parent exiting  
+start mongo cluster...  
+root      51345      1 21 18:12 ?        00:00:01 /usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod -f /root/mongocluster/mongo_37017.conf  
+root      51390      1 45 18:12 ?        00:00:02 /usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod -f /root/mongocluster/mongo_37018.conf  
+root      51470      1 97 18:12 ?        00:00:02 /usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod -f /root/mongocluster/mongo_37019.conf  
+root      51537  51337  0 18:12 pts/0    00:00:00 grep mongodb  
+[root@mongodb-0 mongocluster]#  
