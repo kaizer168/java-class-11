@@ -514,8 +514,9 @@ heroMongoCluster:PRIMARY> rs.status()
         },  
         "operationTime" : Timestamp(1668249811, 1)  
 }  
-heroMongoCluster:PRIMARY>  
+heroMongoCluster:PRIMARY> exit  
 
+## 开启从节点复制  
 [root@mongodb-0 ~]# mongo --host=192.168.1.130 --port=37018  
 MongoDB shell version v4.1.3  
 connecting to: mongodb://192.168.1.130:37018/  
