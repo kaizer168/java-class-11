@@ -144,3 +144,150 @@ root      51390      1 45 18:12 ?        00:00:02 /usr/local/hero/mongodb-linux-
 root      51470      1 97 18:12 ?        00:00:02 /usr/local/hero/mongodb-linux-x86_64-rhel70-4.1.3/bin/mongod -f /root/mongocluster/mongo_37019.conf  
 root      51537  51337  0 18:12 pts/0    00:00:00 grep mongodb  
 [root@mongodb-0 mongocluster]#  
+
+## 初始化集群  
+[root@mongodb-0 mongocluster]# mongo --host=192.168.1.130 --port=37017  
+MongoDB shell version v4.1.3  
+connecting to: mongodb://192.168.1.130:37017/  
+Implicit session: session { "id" : UUID("957796f5-af98-4063-9231-201104a6108e") }  
+MongoDB server version: 4.1.3  
+Server has startup warnings:  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten]  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten] ** NOTE: This is a development version (4.1.3) of MongoDB.  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten] **       Not recommended for production.  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten]  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten]  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten]  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten]  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'  
+2022-11-12T18:12:39.790+0800 I CONTROL  [initandlisten]  
+---
+Enable MongoDB's free cloud-based monitoring service, which will then receive and display  
+metrics about your deployment (disk utilization, CPU, operation statistics, etc).  
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you  
+and anyone you share the URL with. MongoDB may use this information to make product  
+improvements and to suggest MongoDB products and deployment options to you.  
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()  
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()  
+---  
+
+>  
+> var cfg ={"_id":"heroMongoCluster",  
+... "protocolVersion" : 1,  
+... "members":[  
+... {"_id":1,"host":"192.168.1.130:37017","priority":10},  
+... {"_id":2,"host":"192.168.1.130:37018"}  
+... ]  
+... }  
+> rs.initiate(cfg)  
+{  
+        "ok" : 1,  
+        "$clusterTime" : {  
+                "clusterTime" : Timestamp(1668248698, 1),  
+                "signature" : {  
+                        "hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),  
+                        "keyId" : NumberLong(0)  
+                }  
+        },  
+        "operationTime" : Timestamp(1668248698, 1)  
+}  
+heroMongoCluster:SECONDARY> rs.status()  
+{  
+        "set" : "heroMongoCluster",  
+        "date" : ISODate("2022-11-12T10:25:44.356Z"),  
+        "myState" : 1,  
+        "term" : NumberLong(1),  
+        "syncingTo" : "",  
+        "syncSourceHost" : "",  
+        "syncSourceId" : -1,  
+        "heartbeatIntervalMillis" : NumberLong(2000),  
+        "optimes" : {  
+                "lastCommittedOpTime" : {  
+                        "ts" : Timestamp(1668248740, 1),  
+                        "t" : NumberLong(1)  
+                },  
+                "readConcernMajorityOpTime" : {  
+                        "ts" : Timestamp(1668248740, 1),  
+                        "t" : NumberLong(1)  
+                },
+                "appliedOpTime" : {  
+                        "ts" : Timestamp(1668248740, 1),  
+                        "t" : NumberLong(1)  
+                },  
+                "durableOpTime" : {  
+                        "ts" : Timestamp(1668248740, 1),  
+                        "t" : NumberLong(1)  
+                }  
+        },  
+        "lastStableRecoveryTimestamp" : Timestamp(1668248710, 1),  
+        "lastStableCheckpointTimestamp" : Timestamp(1668248710, 1),  
+        "members" : [  
+                {  
+                        "_id" : 1,  
+                        "name" : "192.168.1.130:37017",  
+                        "health" : 1,  
+                        "state" : 1,  
+                        "stateStr" : "PRIMARY",  
+                        "uptime" : 786,  
+                        "optime" : {  
+                                "ts" : Timestamp(1668248740, 1),  
+                                "t" : NumberLong(1)  
+                        },  
+                        "optimeDate" : ISODate("2022-11-12T10:25:40Z"),  
+                        "syncingTo" : "",  
+                        "syncSourceHost" : "",  
+                        "syncSourceId" : -1,  
+                        "infoMessage" : "could not find member to sync from",  
+                        "electionTime" : Timestamp(1668248709, 1),  
+                        "electionDate" : ISODate("2022-11-12T10:25:09Z"),  
+                        "configVersion" : 1,  
+                        "self" : true,  
+                        "lastHeartbeatMessage" : ""  
+                },  
+                {  
+                        "_id" : 2,  
+                        "name" : "192.168.1.130:37018",  
+                        "health" : 1,  
+                        "state" : 2,  
+                        "stateStr" : "SECONDARY",  
+                        "uptime" : 45,  
+                        "optime" : {  
+                                "ts" : Timestamp(1668248740, 1),  
+                                "t" : NumberLong(1)  
+                        },  
+                        "optimeDurable" : {  
+                                "ts" : Timestamp(1668248740, 1),  
+                                "t" : NumberLong(1)  
+                        },  
+                        "optimeDate" : ISODate("2022-11-12T10:25:40Z"),  
+                        "optimeDurableDate" : ISODate("2022-11-12T10:25:40Z"),  
+                        "lastHeartbeat" : ISODate("2022-11-12T10:25:43.181Z"),  
+                        "lastHeartbeatRecv" : ISODate("2022-11-12T10:25:43.881Z"),  
+                        "pingMs" : NumberLong(0),  
+                        "lastHeartbeatMessage" : "",  
+                        "syncingTo" : "192.168.1.130:37017",  
+                        "syncSourceHost" : "192.168.1.130:37017",  
+                        "syncSourceId" : 1,  
+                        "infoMessage" : "",  
+                        "configVersion" : 1  
+                }  
+        ],  
+        "ok" : 1,  
+        "$clusterTime" : {  
+                "clusterTime" : Timestamp(1668248740, 1),  
+                "signature" : {  
+                        "hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),  
+                        "keyId" : NumberLong(0)  
+                }  
+        },  
+        "operationTime" : Timestamp(1668248740, 1)  
+}  
+heroMongoCluster:PRIMARY>  
